@@ -28,6 +28,8 @@
 
 -> Netwerkeinbindung - done
 
+-> Exeptions werden nicht angezeigt /berücksichtigt
+
 -> Gastaccount löschen beim einloggen
 
 -> Code aufraeumen

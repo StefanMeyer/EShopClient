@@ -136,7 +136,7 @@ public class GUI_2 extends JFrame{
 		//Menuebar anpassen 
 		menuBar.setUserLoggedIn(true);
 		if (user instanceof Kunde) {
-			//kunde einloggen und warenkorb ï¿½bernehmen
+			//kunde einloggen und warenkorb übernehmen
 			if(!(user.getAccountNr() < 0)){
 				Warenkorb wk = shop.getWarenkorb(this.user);
 				this.user = user;

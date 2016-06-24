@@ -65,16 +65,14 @@ public class WarenkorbButtonPanel extends JPanel{
 				if(!(user.getAccountNr() < 0)){
 					int jaNein = JOptionPane.showConfirmDialog(null,"Bestellung abschliessen?");
 					if (jaNein == 0) {
-						
 						Clientverwaltung shop = gui.getShop();
-						HashMap<Artikel, Integer> fehlerliste = shop .pruefeKauf((Kunde) user);
+						HashMap<Artikel, Integer> fehlerliste = shop.pruefeKauf((Kunde) user);
 						if (!fehlerliste.isEmpty()) {
 							JOptionPane.showMessageDialog(null,"Es konnten nicht alle Artikel zum Kauf angeboten werden.");				
 							} else {
 								RechnungsPanel rechnung = new RechnungsPanel(gui);			
-						}//Ende else (!fehlerliste.isEmpty())
-					}//if (jaNein == 0)
-					
+						}
+					}
 					else if (user.getAccountNr() < 0) {
 						System.out.println("Gast konto");
 						//user muss sich erst einloggen 	

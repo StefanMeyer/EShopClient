@@ -75,6 +75,7 @@ public class Clientverwaltung extends Client{
 	public Rechnung kaufAbwickeln(Kunde user) {
 		//TODO Aktaullisere für alle clients artikelliste
 		sendMessage(new Datapackage("KAUFABWICKELN", user));
+		System.out.println("[Client] KAUFABWICKELN: !!!!NULL!!!");
 		return null;
 	}
 
@@ -105,9 +106,9 @@ public class Clientverwaltung extends Client{
 	}
 
 	public HashMap<Artikel, Integer> pruefeKauf(Kunde user) {
-		sendMessage(new Datapackage("PRUEFEKAUF", user));
-		System.out.println("[Client] pruefekauf: !!!!NULL!!!!");
-		return null;
+		Datapackage artikel = sendMessage(new Datapackage("PRUEFEKAUF", user));
+		System.out.println("[Client] pruefekauf: " + (HashMap) artikel.get(1));
+		return (HashMap) artikel.get(1);
 	}
 
 	public Account erstelleGastAccount() {

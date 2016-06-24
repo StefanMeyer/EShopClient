@@ -1,21 +1,16 @@
 // KUNDE //
 
-- keine Bestandsprüfung beim Kauf
-
 - Button "in Warenkorb legen" entfernen //gefixt
-
+- warenkorb kaufen butten verschwindet beim ausloggen //gefixt
 - Beim Logout fehlt eine Bestätigungsmeldung //gefixt
-
 - Warenkorb: Artikel entfernen fehlt //gefixt
-
 - Warenkorb: Packungsgröße-Angabe fehlt //gefixt
-
 - content frame aktualisiert nicht nach Ausloggen //gefixt
 
+
+- keine Bestandsprüfung beim Kauf
 - Kauf wird nicht abgeschlossen
-
--warenkorb kaufen butten verschwindet beim ausloggen //gefixt
-
+- Warenkorb speichert/zeigt nur einen artikel an.
 
 // MITARBEITER //
 
@@ -34,8 +29,6 @@
 -> Netwerkeinbindung - done
 
 -> Gastaccount löschen beim einloggen
-
--> Alle Buttons in eine Separate Datei auslagern
 
 -> Code aufraeumen
 

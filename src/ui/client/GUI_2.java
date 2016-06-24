@@ -34,19 +34,18 @@ public class GUI_2 extends JFrame{
 	private MenuePanel menuBar;
 	
 	//LayoutPanel
-	public JPanel navframe = new JPanel();		
-	public JPanel contentframe = new JPanel();	
-	public JPanel mainPanel = new JPanel();
+	private JPanel navframe = new JPanel();		
+	private JPanel contentframe = new JPanel();	
+	private JPanel mainPanel = new JPanel();
 	
-	private JPanel untenWarenKorbBereichPanel = new JPanel();
 	private JPanel obenPanel = new JPanel();
-	public JPanel untenframe = new JPanel();
-	
+		
 	private MitarbeiterPanel mitarbeiterPanel;
 	private KundenPanel kundenPanel;
 	private SuchPanel suchPanel;
 	private ArtikelPanel artikelPanel;
-	private WarenkorbButtonPanel warenKorbButtons;
+	private WarenkorbButtonPanel warenKorbButtons = new WarenkorbButtonPanel(this);;
+
 	private WarenkorbPanel warenkorbPanel;
 	
 	//Konstrukter
@@ -68,23 +67,16 @@ public class GUI_2 extends JFrame{
 		mitarbeiterPanel = new MitarbeiterPanel(this);
 		kundenPanel = new KundenPanel(this);
 		suchPanel = new SuchPanel(suchController, this);
-		
-		
+		//Warenkorb erstellen.
+		warenkorbPanel = new WarenkorbPanel(this);		
 		//beendet das Programm durch klicken auf [X]
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
 		this.mainPanel.setLayout(new BorderLayout());
 		this.navframe.setLayout(new BorderLayout());
 		this.contentframe.setLayout(new BorderLayout());
 		
 		//Menuebar
 		setJMenuBar(menuBar.getMenue());
-		
-		//Warenkorb erstellen.
-		warenkorbPanel = new WarenkorbPanel(this);
-		
-		//Warenkorb Schaltflaechen
-		warenKorbButtons = new WarenkorbButtonPanel(this);
 		
 		//SuchPanel
 		suchPanelSetzen();
@@ -101,7 +93,6 @@ public class GUI_2 extends JFrame{
 		//GUI setzen
 		this.mainPanel.add(this.navframe,BorderLayout.NORTH);
 		this.mainPanel.add(this.contentframe,BorderLayout.CENTER);	
-		this.mainPanel.add(this.untenframe,BorderLayout.SOUTH);	
 		add(this.mainPanel);
 		setVisible(true);
 	}
@@ -110,8 +101,7 @@ public class GUI_2 extends JFrame{
 	public void obenPanelSetzen(){
 		obenPanel.setLayout(new GridLayout(1,1));
 		obenPanel.add(suchPanel);
-		//obenPanel.add(warenKorbButtons.getInWarenKorbLegenButton());
-		obenPanel.add(warenKorbButtons.zumWarenKorbButton);
+		obenPanel.add(warenKorbButtons.getZumWarenKorbButton());
 	}
 	
 	public void KundenPanelSetzen(){
@@ -130,7 +120,6 @@ public class GUI_2 extends JFrame{
 		//nicht benötigte Panel ausblenden
 		artikelPanel.setVisible(false);
 		warenkorbPanel.setVisible(false);
-		untenframe.setVisible(false);
 	}	
 	//SuchPanel
 	public void suchPanelSetzen(){		
@@ -140,15 +129,6 @@ public class GUI_2 extends JFrame{
 	//ArtikelPanel
 	public void artikelPanelSetzen(){
 		this.contentframe.add(artikelPanel, BorderLayout.CENTER);	
-	}
-	
-	//untenframe
-	public void untenframe(){
-		untenframe.setLayout(new GridLayout(1, 3));
-		untenframe.add(new JLabel());//Platzhalter
-		untenframe.add(warenKorbButtons.kaufAbschliessenButton);
-		untenframe.add(new JLabel());//Platzhalter
-		untenframe.setBorder(BorderFactory.createTitledBorder("Kaufabwicklungsbereich")); //Ueberschrift Kaufabwicklungsbereich
 	}
 		
 	//Wenn Benutzer eingeloggt
@@ -184,7 +164,7 @@ public class GUI_2 extends JFrame{
 			contentframe.remove(mitarbeiterPanel.getContentframe());
 			artikelPanel.setVisible(true);
 			warenkorbPanel.setVisible(true);
-			untenframe.setVisible(true);			
+		//TODO	untenframe.setVisible(true);			
 		}
 		JOptionPane.showMessageDialog(null,"Erfolgreich ausgeloggt!");
 		//panelanzeige aktuallisieren
@@ -197,9 +177,9 @@ public class GUI_2 extends JFrame{
 	public void zumWarenKorb(){
 		
 		obenPanel.setVisible(true);
-		untenframe.setVisible(true);
+	//TODO	untenframe.setVisible(true);
 		
-		//loescht Artikel Panel
+		//Artikel Panel aus ansicht entfernen
 		contentframe.remove(artikelPanel);
 		
 		//Hinzufuegen hinzugefuegte Artikel Panel
@@ -208,25 +188,22 @@ public class GUI_2 extends JFrame{
 		obenPanel.remove(suchPanel);
 		contentframe.remove(suchPanel);
 		
-		obenPanel.remove(warenKorbButtons.zumWarenKorbButton);
-		//obenPanel.remove(warenKorbButtons.getInWarenKorbLegenButton());
-		obenPanel.add(warenKorbButtons.zumShop);
+		obenPanel.remove(warenKorbButtons.getZumWarenKorbButton());
+		obenPanel.add(warenKorbButtons.getZumShop());
 		refresh();
 	}
 	
 	public void zumShopButton(){	
 		
 		obenPanel.setVisible(true);
-		untenframe.setVisible(false);
 		
-		obenPanel.remove(warenKorbButtons.zumShop);
+		obenPanel.remove(warenKorbButtons.getZumShop());
 		contentframe.remove(warenkorbPanel);
-		contentframe.remove(untenWarenKorbBereichPanel);
-		untenWarenKorbBereichPanel.remove(warenKorbButtons.kaufAbschliessenButton);		
+	//TODO	contentframe.remove(untenWarenKorbBereichPanel);
+	//TODO	untenWarenKorbBereichPanel.remove(warenKorbButtons.getKaufAbschliessenButton());		
 		
 		obenPanel.add(suchPanel);
-		//obenPanel.add(warenKorbButtons.getInWarenKorbLegenButton());
-		obenPanel.add(warenKorbButtons.zumWarenKorbButton);
+		obenPanel.add(warenKorbButtons.getZumWarenKorbButton());
 		contentframe.add(artikelPanel);
 		
 		refresh();
@@ -297,7 +274,7 @@ public class GUI_2 extends JFrame{
 		shop.schreibeStatsdaten();
 	}
 	public void untenWarenKorbBereichPanel(boolean b){
-		untenWarenKorbBereichPanel.setVisible(b);
+	//TODO	untenWarenKorbBereichPanel.setVisible(b);
 	}
 	
 	//Getter und Setter
@@ -336,7 +313,9 @@ public class GUI_2 extends JFrame{
 	public void setObenPanel(JPanel obenPanel) {
 		this.obenPanel = obenPanel;
 	}
-	
+	public WarenkorbButtonPanel getWarenKorbButtons() {
+		return warenKorbButtons;
+	}	
 	//refresht alle Panels
 	public void refresh(){
 

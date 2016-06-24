@@ -1,6 +1,6 @@
 package ui.client.panel;
 
-import java.awt.GridLayout;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -32,7 +32,7 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 	public WarenkorbPanel(GUI_2 gui) {
 		this.gui = gui;
 		
-		this.setLayout(new GridLayout());
+		this.setLayout(new BorderLayout());
 		this.setBorder(BorderFactory.createTitledBorder("Warenkorb")); //Ueberschrift Warenkorb
 		this.setVisible(true);
 		
@@ -49,8 +49,9 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 		Kunde user =(Kunde) this.gui.getUser();
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
 		this.updateData(user.getWarenkorb());
-		this.add(scrollPane);
-		
+		this.add(scrollPane,BorderLayout.CENTER);
+		//kaufen butten
+		this.add(gui.getWarenKorbButtons().getKaufAbschliessenButton(),BorderLayout.SOUTH);
 	}
 	
 	public ArtikelTableModel getArtikeltable() {

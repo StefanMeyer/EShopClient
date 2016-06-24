@@ -24,10 +24,10 @@ public class WarenkorbButtonPanel extends JPanel{
 	
 	private GUI_2 gui;
 	
-	public JButton zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
-	public JButton kaufAbschliessenButton = new JButton("Kauf abschliessen");	
-	public JButton zumShop = new JButton("zurueck zum Shop");
-	public JButton inDenWarenkorbButton = new JButton("In den Warenkorb");	
+	private JButton zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
+	private JButton kaufAbschliessenButton = new JButton("Kauf abschliessen");	
+	private JButton zumShop = new JButton("zurueck zum Shop");
+	private JButton inDenWarenkorbButton = new JButton("In den Warenkorb");	
 	
 	private JLabel wieOftArtikelKaufenLabel = new JLabel("Wie oft wollen Sie den Artikel kaufen?");
 	private JFrame wieOftArtikelKaufenFrame = new JFrame();
@@ -62,7 +62,7 @@ public class WarenkorbButtonPanel extends JPanel{
 				//pr�fen ob User eingelogt?
 				Account user = gui.getUser();
 				//JOptionPane.showMessageDialog(null,"bitte einloggen!");
-				if(!(user.getAccountNr() == -1)){
+				if(!(user.getAccountNr() < 0)){
 					int jaNein = JOptionPane.showConfirmDialog(null,"Bestellung abschliessen?");
 					if (jaNein == 0) {
 						

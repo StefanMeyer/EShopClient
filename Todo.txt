@@ -1,0 +1,44 @@
+// KUNDE //
+
+- keine Bestandsprüfung beim Kauf
+
+- Button "in Warenkorb legen" entfernen //gefixt
+
+- Beim Logout fehlt eine Bestätigungsmeldung //gefixt
+
+- Warenkorb: Artikel entfernen fehlt //gefixt
+
+- Warenkorb: Packungsgröße-Angabe fehlt //gefixt
+
+- content frame aktualisiert nicht nach Ausloggen //gefixt
+
+- Kauf wird nicht abgeschlossen
+
+-warenkorb kaufen butten verschwindet beim ausloggen
+
+
+// MITARBEITER //
+
+- Statistik integrieren
+
+- Refresh-Button entfernen
+
+- Veränderung eines Artikels zu einem Massengutartikel (durch Änderung der Packungsgröße) wird nicht gespeichert
+
+//artikelliste
+
+- Wenn artikel sortiert werden wird der falsche artikel selektiert.
+
+//weitere ToDos
+
+-> Netwerkeinbindung - done
+
+-> Gastaccount löschen beim einloggen
+
+-> Alle Buttons in eine Separate Datei auslagern
+
+-> Code aufraeumen
+
+-> "Bestellhistorie" ?! 
+
+-> Mitarbeiter kann Mitarbeiter Account erstellen.

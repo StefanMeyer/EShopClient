@@ -212,8 +212,6 @@ public class GUI_2 extends JFrame{
 	 * 
 	 * @param anzahl -> Anzahl der Artikel die Hinzugefï¿½gt werden sollen
 	 * @throws NumberFormatException
-	 * @throws BestandUeberschrittenException
-	 * @throws ArtikelExistiertNichtException
 	 */
 	public void zumWarenkorbHinzufuegen(int anzahl) throws NumberFormatException {
 
@@ -226,13 +224,9 @@ public class GUI_2 extends JFrame{
 	}
 		
 	public void ausWarenkorbentfernen(int artikelnummer) {
-		shop.ausWarenkorbloechen(shop.artikelSuchen(artikelnummer), (Kunde) user);
-
-        this.getWarenkorbPanel().updateData(shop.getWarenkorb(user));		
-	}	
-	
-	
-	
+		this.user = shop.ausWarenkorbloechen(shop.artikelSuchen(artikelnummer), (Kunde) user);
+        this.getWarenkorbPanel().updateData(shop.getWarenkorb(this.user));
+	}		
 	
 	/** Fügt einen Artikel dem shop hinzu
 	 * 

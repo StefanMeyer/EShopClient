@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+
 import valueobjects.Artikel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -43,10 +45,9 @@ public class ArtikelPanel extends JPanel{
 		// JTable-Objekt erzeugen und mit Datenmodell initialisieren:
 		ausgabeTabelle = new JTable(artikeltable);
 		ausgabeTabelle.setAutoCreateRowSorter(true);
-
+		
 		// JTable in ScrollPane platzieren:
 		scrollPane = new JScrollPane(ausgabeTabelle);
-				
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
 		artikeltable.setDataVector(artikelliste, "kaufen");	
 		this.add(scrollPane);

@@ -52,9 +52,10 @@ public class Clientverwaltung extends Client{
 		return (Kunde) kunde.get(1);
 	}
 
-	public void ausWarenkorbloechen(Artikel artikelSuchen, Kunde user) {
-		sendMessage(new Datapackage("AUSWARENKORBLOESCHEN",artikelSuchen, user));
-		System.out.println("[Client] Auswarenkorblöschen");
+	public Kunde ausWarenkorbloechen(Artikel artikelSuchen, Kunde user) {
+		Datapackage kunde = sendMessage(new Datapackage("AUSWARENKORBLOESCHEN",artikelSuchen, user));
+		System.out.println("[Client] Auswarenkorblöschen" + kunde.get(1));
+		return (Kunde) kunde.get(1);
 	}
 
 	public void aendereArtikel(String artikelname, int artikelnummer, int bestand, float preis, int packungsgroesse) {

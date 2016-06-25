@@ -1,14 +1,14 @@
 // KUNDE //
 
-- Button "in Warenkorb legen" entfernen //gefixt
-- warenkorb kaufen butten verschwindet beim ausloggen //gefixt
-- Beim Logout fehlt eine Bestätigungsmeldung //gefixt
-- Warenkorb: Artikel entfernen fehlt //gefixt
-- Warenkorb: Packungsgröße-Angabe fehlt //gefixt
-- content frame aktualisiert nicht nach Ausloggen //gefixt
-- Warenkorb speichert/zeigt nur einen artikel an. //gefixt
-
-
+- Button "in Warenkorb legen" entfernen //gefixt -manu
+- warenkorb kaufen butten verschwindet beim ausloggen //gefixt stefan
+- Beim Logout fehlt eine Bestätigungsmeldung //gefixt manu
+- Warenkorb: Artikel entfernen fehlt //gefixt stefan
+- Warenkorb: Packungsgröße-Angabe fehlt //gefixt stefan
+- content frame aktualisiert nicht nach Ausloggen //gefixt stefan
+- Warenkorb speichert/zeigt nur einen artikel an. //gefixt stefan
+- Wenn artikel sortiert werden wird der falsche artikel selektiert. Gefixt stefan
+ 
 - keine Bestandsprüfung beim Kauf
 - Kauf wird nicht abgeschlossen
 - Artikel löschen funktioniert nicht (als Gast account)
@@ -20,13 +20,10 @@
 
 - Veränderung eines Artikels zu einem Massengutartikel (durch Änderung der Packungsgröße) wird nicht gespeichert
 
-//artikelliste
-
-- Wenn artikel sortiert werden wird der falsche artikel selektiert.
 
 //weitere ToDos
 
--> Netwerkeinbindung - done
+-> Netwerkeinbindung - done stefan
 
 -> Exeptions werden nicht angezeigt /berücksichtigt
 

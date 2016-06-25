@@ -215,7 +215,7 @@ public class GUI_2 extends JFrame{
 	 */
 	public void zumWarenkorbHinzufuegen(int anzahl) throws NumberFormatException {
 
-		Artikel art = shop.artikelSuchen(Integer.parseInt((this.getArtikelPanel().getArtikeltable().getValueAt(this.getArtikelPanel().getAusgabeTabelle().getSelectedRow(),0)).toString()));
+		Artikel art = shop.artikelSuchen(Integer.parseInt((this.artikelPanel.getArtikeltable().getValueAt(this.getArtikelPanel().getAusgabeTabelle().convertRowIndexToModel(this.getArtikelPanel().getAusgabeTabelle().getSelectedRow()),0)).toString()));
 		Kunde kunde = (Kunde) this.user;		
 		this.user = shop.inWarenkorbEinfuegen(art,anzahl,kunde);
 		//aktuallisere Warenkorb

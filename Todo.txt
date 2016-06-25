@@ -6,12 +6,13 @@
 - Warenkorb: Artikel entfernen fehlt //gefixt
 - Warenkorb: Packungsgröße-Angabe fehlt //gefixt
 - content frame aktualisiert nicht nach Ausloggen //gefixt
+- Warenkorb speichert/zeigt nur einen artikel an. //gefixt
 
 
 - keine Bestandsprüfung beim Kauf
 - Kauf wird nicht abgeschlossen
-- Warenkorb speichert/zeigt nur einen artikel an.
-
+- Artikel löschen funktioniert nicht (mehr) (userreturn bei artiekl aus warenkorb löschen einfügen)
+- Artikelliste wird 2 mal beim start geladen
 // MITARBEITER //
 
 - Statistik integrieren

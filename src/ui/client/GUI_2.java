@@ -219,15 +219,15 @@ public class GUI_2 extends JFrame{
 
 		Artikel art = shop.artikelSuchen(Integer.parseInt((this.getArtikelPanel().getArtikeltable().getValueAt(this.getArtikelPanel().getAusgabeTabelle().getSelectedRow(),0)).toString()));
 		Kunde kunde = (Kunde) this.user;		
-		Kunde user = shop.inWarenkorbEinfuegen(art,anzahl,kunde);
+		this.user = shop.inWarenkorbEinfuegen(art,anzahl,kunde);
 		//aktuallisere Warenkorb
-		Warenkorb wk = shop.getWarenkorb(user);
+		Warenkorb wk = shop.getWarenkorb(this.user);
         this.getWarenkorbPanel().updateData(wk);
 	}
 		
 	public void ausWarenkorbentfernen(int artikelnummer) {
 		shop.ausWarenkorbloechen(shop.artikelSuchen(artikelnummer), (Kunde) user);
-		Kunde user = (Kunde) this.getUser();
+
         this.getWarenkorbPanel().updateData(shop.getWarenkorb(user));		
 	}	
 	

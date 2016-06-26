@@ -1,19 +1,5 @@
 // KUNDE //
--> Netwerkeinbindung -> gefixt stefan
-- Button "in Warenkorb legen" entfernen //gefixt -manu
-- warenkorb kaufen butten verschwindet beim ausloggen //gefixt stefan
-- Beim Logout fehlt eine Bestätigungsmeldung //gefixt manu
-- Warenkorb: Artikel entfernen fehlt //gefixt stefan
-- Warenkorb: Packungsgröße-Angabe fehlt //gefixt stefan
-- content frame aktualisiert nicht nach Ausloggen //gefixt stefan
-- Warenkorb speichert/zeigt nur einen artikel an. //gefixt stefan
-- Wenn artikel sortiert werden wird der falsche artikel selektiert. gefixt stefan 
-- keine Bestandsprüfung beim Kauf - gefixt stefan
-- Kauf wird nicht abgeschlossen -> gefixt stefan
-- Artikelliste aktuallisiert nicht automatisch bei allen clients nach einem kauf -> gefixt stefan
-- Artikel löschen funktioniert nicht (als Gast account (einmaliges löschen im eingelogen zustand möglich HÄ??)) -> gefixt stefan
-- Warenkorb leert nicht nach kauf -> gefixt Stefan
-- Wenn nicht genug artikel vorhanden sind oder eine negative zahl eingegeben wird erhält man keinen fehler  -> gefixt stefan
+
 
 
 // MITARBEITER //
@@ -47,3 +33,20 @@ Falscher Preis wird angezeigt
 
 
 -> Dokumentation
+
+//Fertiges
+-> Netwerkeinbindung -> gefixt stefan
+- Button "in Warenkorb legen" entfernen //gefixt -manu
+- warenkorb kaufen butten verschwindet beim ausloggen //gefixt stefan
+- Beim Logout fehlt eine Bestätigungsmeldung //gefixt manu
+- Warenkorb: Artikel entfernen fehlt //gefixt stefan
+- Warenkorb: Packungsgröße-Angabe fehlt //gefixt stefan
+- content frame aktualisiert nicht nach Ausloggen //gefixt stefan
+- Warenkorb speichert/zeigt nur einen artikel an. //gefixt stefan
+- Wenn artikel sortiert werden wird der falsche artikel selektiert. gefixt stefan 
+- keine Bestandsprüfung beim Kauf - gefixt stefan
+- Kauf wird nicht abgeschlossen -> gefixt stefan
+- Artikelliste aktuallisiert nicht automatisch bei allen clients nach einem kauf -> gefixt stefan
+- Artikel löschen funktioniert nicht (als Gast account (einmaliges löschen im eingelogen zustand möglich HÄ??)) -> gefixt stefan
+- Warenkorb leert nicht nach kauf -> gefixt Stefan
+- Wenn nicht genug artikel vorhanden sind oder eine negative zahl eingegeben wird erhält man keinen fehler  -> gefixt stefan

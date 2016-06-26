@@ -212,14 +212,21 @@ public class GUI_2 extends JFrame{
 	 * @param anzahl -> Anzahl der Artikel die Hinzugefï¿½gt werden sollen
 	 * @throws NumberFormatException
 	 */
-	public void zumWarenkorbHinzufuegen(int anzahl) throws NumberFormatException {
+	public boolean zumWarenkorbHinzufuegen(int anzahl) throws NumberFormatException {
 		//prüfen ob Artikel ausreichend vorhandne ist.
 		Artikel art = shop.artikelSuchen(Integer.parseInt((this.artikelPanel.getArtikeltable().getValueAt(this.getArtikelPanel().getAusgabeTabelle().convertRowIndexToModel(this.getArtikelPanel().getAusgabeTabelle().getSelectedRow()),0)).toString()));
-		Kunde kunde = (Kunde) this.user;		
-		this.user = shop.inWarenkorbEinfuegen(art,anzahl,kunde);
-		//aktuallisere Warenkorb
-		Warenkorb wk = shop.getWarenkorb(this.user);
-        this.getWarenkorbPanel().updateData(wk);
+		if (art.getBestand() < anzahl || anzahl < 1) {
+		//TODO some error message	
+			JOptionPane.showMessageDialog(null,"Artikel nicht in ausreichender Menge verfügbar.");
+			return false;
+		}else{
+			Kunde kunde = (Kunde) this.user;		
+			this.user = shop.inWarenkorbEinfuegen(art,anzahl,kunde);
+			//aktuallisere Warenkorb
+			Warenkorb wk = shop.getWarenkorb(this.user);
+	        this.getWarenkorbPanel().updateData(wk);
+	        return true;
+		}
 	}
 		
 	public void ausWarenkorbentfernen(int artikelnummer) {

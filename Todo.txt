@@ -13,6 +13,7 @@
 - Artikelliste aktuallisiert nicht automatisch bei allen clients nach einem kauf -> gefixt stefan
 - Artikel löschen funktioniert nicht (als Gast account (einmaliges löschen im eingelogen zustand möglich HÄ??)) -> gefixt stefan
 - Warenkorb leert nicht nach kauf -> gefixt Stefan
+- Wenn nicht genug artikel vorhanden sind oder eine negative zahl eingegeben wird erhält man keinen fehler  -> gefixt stefan
 
 
 // MITARBEITER //

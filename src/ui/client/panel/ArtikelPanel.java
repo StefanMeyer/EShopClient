@@ -78,8 +78,7 @@ public class ArtikelPanel extends JPanel{
 							try { 
 								//Zum Warenkorb hinzuf�gen
 								int anz = Integer.parseInt(anzahl.getText());
-								gui.zumWarenkorbHinzufuegen(anz);
-								wieOftArtikelKaufenFrame.setVisible(false);
+								if(gui.zumWarenkorbHinzufuegen(anz)) wieOftArtikelKaufenFrame.setVisible(false);
 							} catch (NumberFormatException e) {
 								e.printStackTrace();
 							}

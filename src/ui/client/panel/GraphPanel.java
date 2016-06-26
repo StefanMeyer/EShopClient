@@ -15,8 +15,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import commen.client.Clientverwaltung;
 import ui.client.GUI_2;
 import ui.client.panel.*;
+import valueobjects.Stats;
 
 public class GraphPanel extends JPanel {
 
@@ -32,6 +34,7 @@ public class GraphPanel extends JPanel {
     private int numberYDivisions = 10;
     private List<Double> scores;
     private GUI_2 gui;
+    private Clientverwaltung client;
     
     private MitarbeiterPanel mP;
 
@@ -155,6 +158,9 @@ public class GraphPanel extends JPanel {
     }
 
     private static void createAndShowGui() {
+    	
+	//	GUI_2 gui = new GUI_2(client);
+    	//List <Stats> alleStats = gui.getShop().gibAlleStats();
         List<Double> scores = new ArrayList<>();
         Random random = new Random();
         int maxDataPoints = 40;
@@ -166,7 +172,7 @@ public class GraphPanel extends JPanel {
         GraphPanel mainPanel = new GraphPanel(scores);
         mainPanel.setPreferredSize(new Dimension(800, 600));
         JFrame frame = new JFrame("DrawGraph");
-        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(mainPanel);
         frame.pack();
         frame.setLocationRelativeTo(null);

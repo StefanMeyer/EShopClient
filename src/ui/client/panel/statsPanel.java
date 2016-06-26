@@ -16,6 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.*;
 
+import commen.client.Clientverwaltung;
 import ui.client.GUI_2;
 import valueobjects.Stats;
 
@@ -32,7 +33,7 @@ public class statsPanel extends JPanel {
 	   private static final int GRAPH_POINT_WIDTH = 5;
 	   private static final int Y_HATCH_CNT = 10;
 	   private List<Integer> scores = new ArrayList<Integer>();
-	   
+	   private Clientverwaltung client;
 
 	   
 	   public statsPanel(List <Stats> Statlist) {
@@ -120,7 +121,8 @@ public class statsPanel extends JPanel {
 	   }
 
 	   private static void createAndShowGui() {		   
-	      GUI_2 gui = new GUI_2("Shop");
+	      
+		GUI_2 gui = new GUI_2(client);
 	      JFrame frame = new JFrame("");
 	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	      	   

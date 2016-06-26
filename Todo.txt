@@ -6,7 +6,7 @@
 
 - Statistik integrieren
 
-- Veränderung eines Artikels zu einem Massengutartikel (durch Änderung der Packungsgröße) wird nicht gespeichert
+- Änderungen an Massengutartikeln wird nicht gespeichert.
 
 - artikel Löschen
 
@@ -44,3 +44,4 @@
 - Warenkorb leert nicht nach kauf -> gefixt Stefan
 - Wenn nicht genug artikel vorhanden sind oder eine negative zahl eingegeben wird erhält man keinen fehler  -> gefixt stefan
 - Falscher Preis wird angezeigt -> gefixt stefan
+- Veränderung eines Artikels zu einem Massengutartikel (durch Änderung der Packungsgröße) wird nicht gespeichert -> "gefixt" stefan

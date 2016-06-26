@@ -139,8 +139,7 @@ public class GUI_2 extends JFrame{
 			//kunde einloggen und warenkorb übernehmen
 			if(!(user.getAccountNr() < 0)){
 				Warenkorb wk = shop.getWarenkorb(this.user);
-				this.user = user;
-				shop.setWarenkorb(this.user, wk);
+				this.user = shop.setWarenkorb(user, wk);
 			}				
 			//Panel einblenden
 			KundenPanelSetzen();
@@ -214,7 +213,7 @@ public class GUI_2 extends JFrame{
 	 * @throws NumberFormatException
 	 */
 	public void zumWarenkorbHinzufuegen(int anzahl) throws NumberFormatException {
-
+		//prüfen ob Artikel ausreichend vorhandne ist.
 		Artikel art = shop.artikelSuchen(Integer.parseInt((this.artikelPanel.getArtikeltable().getValueAt(this.getArtikelPanel().getAusgabeTabelle().convertRowIndexToModel(this.getArtikelPanel().getAusgabeTabelle().getSelectedRow()),0)).toString()));
 		Kunde kunde = (Kunde) this.user;		
 		this.user = shop.inWarenkorbEinfuegen(art,anzahl,kunde);
@@ -289,7 +288,7 @@ public class GUI_2 extends JFrame{
 	}
 
 	public void setUser(Account user) {
-		this.user = user;
+		this.user = user;	
 	}
 	
 	public WarenkorbPanel getWarenkorbPanel() {

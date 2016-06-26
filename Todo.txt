@@ -11,7 +11,7 @@
  
 - keine Bestandsprüfung beim Kauf
 - Kauf wird nicht abgeschlossen
-- Artikel löschen funktioniert nicht (als Gast account)
+- Artikel löschen funktioniert nicht (als Gast account (einmaliges löschen im eingelogen zustand möglich HÄ??))
 // MITARBEITER //
 
 - Statistik integrieren
@@ -34,3 +34,5 @@
 -> "Bestellhistorie" ?! 
 
 -> Mitarbeiter kann Mitarbeiter Account erstellen.
+
+-> bestand "auch" prüfen bei warenin den warenkorb legen

@@ -8,6 +8,7 @@ import com.blogspot.debukkitsblog.Util.Client;
 import com.blogspot.debukkitsblog.Util.Datapackage;
 import com.blogspot.debukkitsblog.Util.Executable;
 
+import ui.client.GUI_2;
 import valueobjects.Account;
 import valueobjects.Artikel;
 import valueobjects.Kunde;
@@ -73,11 +74,13 @@ public class Clientverwaltung extends Client{
 		sendMessage(new Datapackage("SCHREIBESTATSDATEN"));
 	}
 
-	public Rechnung kaufAbwickeln(Kunde user) {
+	public Rechnung kaufAbwickeln(Kunde user, GUI_2 gui) {
 		//TODO Aktaullisere für alle clients artikelliste
-		sendMessage(new Datapackage("KAUFABWICKELN", user));
-		System.out.println("[Client] KAUFABWICKELN: !!!!NULL!!!");
-		return null;
+		Datapackage data = sendMessage(new Datapackage("KAUFABWICKELN", user));
+		//kunden Updaten
+		gui.setUser((Kunde) data.get(1));
+		System.out.println("[Client] KAUFABWICKELN (Kunde,Rechnung) :" +data.get(1) + data.get(2));
+		return (Rechnung) data.get(2);
 	}
 
 	public List<Stats> gibAlleStats() {
@@ -124,8 +127,9 @@ public class Clientverwaltung extends Client{
 		return (Warenkorb) wk.get(1);
 	}
 
-	public void setWarenkorb(Account user, Warenkorb wk) {
-		sendMessage(new Datapackage("SETWARENKORB",(Kunde) user ,wk));
-		System.out.println("[Client] setwarenkorb: ");
+	public Kunde setWarenkorb(Account user, Warenkorb wk) {
+		Datapackage kunde = sendMessage(new Datapackage("SETWARENKORB",(Kunde) user ,wk));
+		System.out.println("[Client] setwarenkorb: " + kunde.get(1));
+		return (Kunde) kunde.get(1);
 	}
 }

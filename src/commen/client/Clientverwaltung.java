@@ -76,22 +76,18 @@ public class Clientverwaltung extends Client{
 		sendMessage(new Datapackage("AENDEREARTIKEL",artikelname, artikelnummer, bestand, preis, packungsgroesse));
 		System.out.println("[Client] artikeländern:");
 	}
-
-	public void schreibeArtikeldaten() {
+	public void schreibeKundendaten() {
 		// TODO Auto-generated method stub
-		sendMessage(new Datapackage("SCHREIBEARTIKELDATEN"));
+		sendMessage(new Datapackage("SCHREIBEKUNDENDATEN"));
 	}
-
-	public void schreibeStatsdaten() {
-		// TODO Auto-generated method stub
-		sendMessage(new Datapackage("SCHREIBESTATSDATEN"));
-	}
-
 	public Rechnung kaufAbwickeln(Kunde user) {
 		//TODO Aktaullisere für alle clients artikelliste
 		Datapackage data = sendMessage(new Datapackage("KAUFABWICKELN", user));
 		//kunden Updaten
 		gui.setUser((Kunde) data.get(1));
+		//warenkorb updaten
+		Warenkorb wk = gui.getShop().getWarenkorb(gui.getUser());
+        gui.getWarenkorbPanel().updateData(wk);
 		System.out.println("[Client] KAUFABWICKELN (Kunde,Rechnung) :" +data.get(1) + data.get(2));
 		return (Rechnung) data.get(2);
 	}
@@ -110,12 +106,6 @@ public class Clientverwaltung extends Client{
 		sendMessage(new Datapackage("FUEGEKUNDENACCOUNTEIN", name,passwort,strasse,plz,ort));
 		System.out.println("[Client] fuegekundenaccountein:");
 	}
-
-	public void schreibeKundendaten() {
-		// TODO Auto-generated method stub
-		sendMessage(new Datapackage("SCHREIBEKUNDENDATEN"));
-	}
-
 	public Account loginAccount(String name, String passwort) {
 		Datapackage kunde = sendMessage(new Datapackage("LOGINACCOUNT", name, passwort));
 		System.out.println("[Client] LoginAccount:" + kunde.get(1));
@@ -144,5 +134,16 @@ public class Clientverwaltung extends Client{
 		Datapackage kunde = sendMessage(new Datapackage("SETWARENKORB",(Kunde) user ,wk));
 		System.out.println("[Client] setwarenkorb: " + kunde.get(1));
 		return (Kunde) kunde.get(1);
+	}
+	
+	//Server anweisen daten zu speichern
+	public void schreibeArtikeldaten() {
+		// TODO Auto-generated method stub
+		sendMessage(new Datapackage("SCHREIBEARTIKELDATEN"));
+	}
+
+	public void schreibeStatsdaten() {
+		// TODO Auto-generated method stub
+		sendMessage(new Datapackage("SCHREIBESTATSDATEN"));
 	}
 }

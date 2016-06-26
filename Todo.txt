@@ -1,5 +1,5 @@
 // KUNDE //
-
+-> Netwerkeinbindung -> gefixt stefan
 - Button "in Warenkorb legen" entfernen //gefixt -manu
 - warenkorb kaufen butten verschwindet beim ausloggen //gefixt stefan
 - Beim Logout fehlt eine Bestätigungsmeldung //gefixt manu
@@ -12,17 +12,14 @@
 - Kauf wird nicht abgeschlossen -> gefixt stefan
 - Artikelliste aktuallisiert nicht automatisch bei allen clients nach einem kauf -> gefixt stefan
 - Artikel löschen funktioniert nicht (als Gast account (einmaliges löschen im eingelogen zustand möglich HÄ??)) -> gefixt stefan
-
-
-
-- Warenkorb leert nicht nach kauf
+- Warenkorb leert nicht nach kauf -> gefixt Stefan
 
 
 // MITARBEITER //
 
 - Statistik integrieren
 
-- Refresh-Button entfernen
+- Refresh-Button entfernen -> gefixt manu
 
 - Veränderung eines Artikels zu einem Massengutartikel (durch Änderung der Packungsgröße) wird nicht gespeichert
 
@@ -33,7 +30,7 @@ Falscher Preis wird angezeigt
 
 //weitere ToDos
 
--> Netwerkeinbindung - done stefan
+
 
 -> Exeptions werden nicht angezeigt /berücksichtigt
 

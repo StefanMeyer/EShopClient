@@ -8,14 +8,11 @@
 
 - Veränderung eines Artikels zu einem Massengutartikel (durch Änderung der Packungsgröße) wird nicht gespeichert
 
+- artikel Löschen
+
 //Rechnung //
 
-
-
-
 //weitere ToDos
-
-
 
 -> Exeptions werden nicht angezeigt /berücksichtigt
 

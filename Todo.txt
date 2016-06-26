@@ -9,10 +9,15 @@
 - Warenkorb speichert/zeigt nur einen artikel an. //gefixt stefan
 - Wenn artikel sortiert werden wird der falsche artikel selektiert. Gefixt stefan 
 - keine Bestandsprüfung beim Kauf - gefixt stefan
+- Kauf wird nicht abgeschlossen -> gefixt
+- Artikelliste aktuallisiert nicht automatisch bei allen clients nach einem kauf -> gefixt
 
 
-- Kauf wird nicht abgeschlossen
 - Artikel löschen funktioniert nicht (als Gast account (einmaliges löschen im eingelogen zustand möglich HÄ??))
+
+- Warenkorb leert nicht nach kauf
+
+
 // MITARBEITER //
 
 - Statistik integrieren
@@ -20,6 +25,10 @@
 - Refresh-Button entfernen
 
 - Veränderung eines Artikels zu einem Massengutartikel (durch Änderung der Packungsgröße) wird nicht gespeichert
+
+//Rechnung //
+
+Falscher Preis wird angezeigt
 
 
 //weitere ToDos

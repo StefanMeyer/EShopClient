@@ -21,9 +21,22 @@ import valueobjects.Warenkorb;
  */
 
 public class Clientverwaltung extends Client{
+	private GUI_2 gui;
 	
+	public void setGui(GUI_2 gui) {
+		this.gui = gui;
+	}
+
 	public Clientverwaltung(String address, int port, int timeout, boolean autoKill) {
 		super(address, port, timeout, autoKill);
+		//server infos verarbeiten
+        registerMethod("NEWARTIKELDATA", new Executable() {
+            @Override
+            public void run(Datapackage data, Socket socket) {
+                gui.getArtikelPanel().getArtikeltable().setDataVector((List<Artikel>) data.get(1),"Kaufen");
+                gui.getArtikelPanel().renderOption();    
+            }
+        });
 		start();
 	}
 
@@ -74,7 +87,7 @@ public class Clientverwaltung extends Client{
 		sendMessage(new Datapackage("SCHREIBESTATSDATEN"));
 	}
 
-	public Rechnung kaufAbwickeln(Kunde user, GUI_2 gui) {
+	public Rechnung kaufAbwickeln(Kunde user) {
 		//TODO Aktaullisere für alle clients artikelliste
 		Datapackage data = sendMessage(new Datapackage("KAUFABWICKELN", user));
 		//kunden Updaten

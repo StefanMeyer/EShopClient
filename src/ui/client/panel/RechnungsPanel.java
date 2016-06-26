@@ -39,7 +39,7 @@ public class RechnungsPanel extends JPanel{
 		Clientverwaltung shop = gui.getShop();
 		Rechnung rechnung = null;
 		Kunde user =(Kunde) this.gui.getUser();
-		rechnung = shop.kaufAbwickeln((Kunde) user,gui);		
+		rechnung = shop.kaufAbwickeln((Kunde) user);		
 		
 		final JFrame rechnungFenster = new JFrame();
 		rechnungFenster.setTitle("Rechnung");

@@ -48,7 +48,7 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 				
 		Kunde user =(Kunde) this.gui.getUser();
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
-		this.updateData(user.getWarenkorb());
+		this.updateData(gui.getShop().getWarenkorb(user));
 		this.add(scrollPane,BorderLayout.CENTER);
 		//kaufen butten
 		this.add(gui.getWarenKorbButtons().getKaufAbschliessenButton(),BorderLayout.SOUTH);

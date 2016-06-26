@@ -7,9 +7,10 @@
 - Warenkorb: Packungsgröße-Angabe fehlt //gefixt stefan
 - content frame aktualisiert nicht nach Ausloggen //gefixt stefan
 - Warenkorb speichert/zeigt nur einen artikel an. //gefixt stefan
-- Wenn artikel sortiert werden wird der falsche artikel selektiert. Gefixt stefan
- 
-- keine Bestandsprüfung beim Kauf
+- Wenn artikel sortiert werden wird der falsche artikel selektiert. Gefixt stefan 
+- keine Bestandsprüfung beim Kauf - gefixt stefan
+
+
 - Kauf wird nicht abgeschlossen
 - Artikel löschen funktioniert nicht (als Gast account (einmaliges löschen im eingelogen zustand möglich HÄ??))
 // MITARBEITER //

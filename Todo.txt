@@ -6,13 +6,11 @@
 
 - Statistik integrieren
 
-- Refresh-Button entfernen -> gefixt manu
-
 - Veränderung eines Artikels zu einem Massengutartikel (durch Änderung der Packungsgröße) wird nicht gespeichert
 
 //Rechnung //
 
-Falscher Preis wird angezeigt
+
 
 
 //weitere ToDos
@@ -29,9 +27,6 @@ Falscher Preis wird angezeigt
 
 -> Mitarbeiter kann Mitarbeiter Account erstellen.
 
--> bestand "auch" prüfen bei waren in den warenkorb legen
-
-
 -> Dokumentation
 
 //Fertiges
@@ -39,6 +34,7 @@ Falscher Preis wird angezeigt
 - Button "in Warenkorb legen" entfernen //gefixt -manu
 - warenkorb kaufen butten verschwindet beim ausloggen //gefixt stefan
 - Beim Logout fehlt eine Bestätigungsmeldung //gefixt manu
+- Refresh-Button entfernen -> gefixt manu
 - Warenkorb: Artikel entfernen fehlt //gefixt stefan
 - Warenkorb: Packungsgröße-Angabe fehlt //gefixt stefan
 - content frame aktualisiert nicht nach Ausloggen //gefixt stefan
@@ -50,3 +46,4 @@ Falscher Preis wird angezeigt
 - Artikel löschen funktioniert nicht (als Gast account (einmaliges löschen im eingelogen zustand möglich HÄ??)) -> gefixt stefan
 - Warenkorb leert nicht nach kauf -> gefixt Stefan
 - Wenn nicht genug artikel vorhanden sind oder eine negative zahl eingegeben wird erhält man keinen fehler  -> gefixt stefan
+- Falscher Preis wird angezeigt -> gefixt stefan

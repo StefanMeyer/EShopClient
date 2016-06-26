@@ -32,9 +32,11 @@ public class MitarbeiterPanel extends JPanel{
 	private ArtikelTableModel artikeltable;
 	private JTable ausgabeTabelle;
 	private JScrollPane scrollPane;
-	private JButton statistikButton = new JButton("Statistik",new ImageIcon("src/assets/statistikIcon.png"));
+	public JButton statistikButton = new JButton("Statistik",new ImageIcon("src/assets/statistikIcon.png"));
 	private JButton artikelHinzufuegenButton = new JButton("Artikel hinzufuegen", new ImageIcon("src/assets/artikelHinzufuegenIcon.png"));
 	//private JButton refreshButton = new JButton("refresh", new ImageIcon("src/assets/refreshIcon.png"));
+	private GraphPanel gP;
+	protected String[] args;
 	
 	//Konstruktor
 	public MitarbeiterPanel(GUI_2 gui) {
@@ -64,13 +66,13 @@ public class MitarbeiterPanel extends JPanel{
 		renderOption();	
 		artikelPanel.add(scrollPane);
 			
-		
-		
 		add(statistikButton);
 		add(artikelHinzufuegenButton);
 		//add(refreshButton);
 		
 		hinzufugenPanel(); 
+		
+		statistikButtonGedrueckt();
 		
 		/*refreshButton.addActionListener(new ActionListener() { 
 			
@@ -169,27 +171,38 @@ public class MitarbeiterPanel extends JPanel{
 			
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Artikel hinzufuegen");
+				
 				//Fuer Menue Account -> Registrieren Button
 				artikelHinzufuegenFrame.setVisible(true);
 					
-					//Artikel hinzufuegen
-					hinzufuegenButton.addActionListener(new ActionListener() { 
-				
-						public void actionPerformed(ActionEvent arg0) {
-							
-							String artikelname = artikelnameFeld.getText();
-							int artikelnummer = Integer.parseInt(artikelnummerFeld.getText());
-							int bestand = Integer.parseInt(bestandFeld.getText());
-							float preis = Float.parseFloat(preisFeld.getText());
-							int packungsgroesse = Integer.parseInt(packungsgroesseFeld.getText());
-							gui.addArtikel(artikelname,artikelnummer, bestand,preis,packungsgroesse);
-							artikelHinzufuegenFrame.setVisible(false);	
-						}
-					});
+				//Artikel hinzufuegen
+				hinzufuegenButton.addActionListener(new ActionListener() { 
+			
+					public void actionPerformed(ActionEvent arg0) {
+						
+						String artikelname = artikelnameFeld.getText();
+						int artikelnummer = Integer.parseInt(artikelnummerFeld.getText());
+						int bestand = Integer.parseInt(bestandFeld.getText());
+						float preis = Float.parseFloat(preisFeld.getText());
+						int packungsgroesse = Integer.parseInt(packungsgroesseFeld.getText());
+						gui.addArtikel(artikelname,artikelnummer, bestand,preis,packungsgroesse);
+						artikelHinzufuegenFrame.setVisible(false);	
+					}
+				});
 			}
 		});		
 	}
-
+	
+	public void statistikButtonGedrueckt() {
+		statistikButton.addActionListener(new ActionListener() { 
+			
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Statistik Button");
+				gP.main(args);
+			}
+		});
+	}
+	
 	public JPanel getContentframe() {
 		return this.artikelPanel;
 	}	

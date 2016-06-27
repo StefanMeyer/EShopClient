@@ -39,7 +39,7 @@ public class MitarbeiterPanel extends JPanel{
 	private JScrollPane scrollPane;
 	public JButton statistikButton = new JButton("Statistik",new ImageIcon("src/assets/statistikIcon.png"));
 	private JButton artikelHinzufuegenButton = new JButton("Artikel hinzufuegen", new ImageIcon("src/assets/artikelHinzufuegenIcon.png"));
-	private JButton artikelLoeschenButton = new JButton("Artikel löschen");
+	private JButton artikelLoeschenButton = new JButton("Artikel löschen", new ImageIcon("src/assets/artikelLöschenIcon.png"));
 	//private JButton refreshButton = new JButton("refresh", new ImageIcon("src/assets/refreshIcon.png"));
 	private GraphPanel gP;
 	protected String[] args;

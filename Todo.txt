@@ -4,9 +4,7 @@
 
 - Statistik integrieren
 
-- Änderungen an Massengutartikeln wird nicht gespeichert.
-
--> artikel Löschen
+- Ã¤nderungen an Massengutartikeln wird nicht gespeichert.
 
 -> Mitarbeiter kann Mitarbeiter Account erstellen.
 
@@ -16,9 +14,9 @@
 
 //sonstiges
 
--> Exeptions werden nicht angezeigt /berücksichtigt
+-> Exeptions werden nicht angezeigt /berÃ¼cksichtigt
 
--> Gastaccount löschen beim einloggen
+-> Gastaccount lÃ¶schen beim einloggen
 
 -> Code aufraeumen
 
@@ -32,18 +30,19 @@
 -> Netwerkeinbindung -> gefixt stefan
 - Button "in Warenkorb legen" entfernen //gefixt -manu
 - warenkorb kaufen butten verschwindet beim ausloggen //gefixt stefan
-- Beim Logout fehlt eine Bestätigungsmeldung //gefixt manu
+- Beim Logout fehlt eine Bestï¿½tigungsmeldung //gefixt manu
 - Refresh-Button entfernen -> gefixt manu
 - Warenkorb: Artikel entfernen fehlt //gefixt stefan
-- Warenkorb: Packungsgröße-Angabe fehlt //gefixt stefan
+- Warenkorb: PackungsgroÃŸe-Angabe fehlt //gefixt stefan
 - content frame aktualisiert nicht nach Ausloggen //gefixt stefan
 - Warenkorb speichert/zeigt nur einen artikel an. //gefixt stefan
 - Wenn artikel sortiert werden wird der falsche artikel selektiert. gefixt stefan 
-- keine Bestandsprüfung beim Kauf - gefixt stefan
+- keine BestandsprÃ¼fung beim Kauf - gefixt stefan
 - Kauf wird nicht abgeschlossen -> gefixt stefan
 - Artikelliste aktuallisiert nicht automatisch bei allen clients nach einem kauf -> gefixt stefan
-- Artikel löschen funktioniert nicht (als Gast account (einmaliges löschen im eingelogen zustand möglich HÄ??)) -> gefixt stefan
+- Artikel lÃ¶schen funktioniert nicht (als Gast account (einmaliges lÃ¶schen im eingelogen zustand mÃ¶glich HÃ¤??)) -> gefixt stefan
 - Warenkorb leert nicht nach kauf -> gefixt Stefan
-- Wenn nicht genug artikel vorhanden sind oder eine negative zahl eingegeben wird erhält man keinen fehler  -> gefixt stefan
+- Wenn nicht genug artikel vorhanden sind oder eine negative zahl eingegeben wird erhÃ¤lt man keinen fehler  -> gefixt stefan
 - Falscher Preis wird angezeigt -> gefixt stefan
-- Veränderung eines Artikels zu einem Massengutartikel (durch Änderung der Packungsgröße) wird nicht gespeichert -> "gefixt" stefan
+- VerÃ¤nderung eines Artikels zu einem Massengutartikel (durch Ã¼nderung der PackungsgrÃ¶ÃŸe) wird nicht gespeichert -> "gefixt" stefan
+- artikel LÃ¶schen -> fixet daniel

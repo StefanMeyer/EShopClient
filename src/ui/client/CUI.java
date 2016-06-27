@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import commen.client.Clientverwaltung;
 import valueobjects.Account;
 import valueobjects.Artikel;
 import valueobjects.Kunde;
@@ -16,12 +17,6 @@ import valueobjects.Mitarbeiter;
 import valueobjects.Rechnung;
 import valueobjects.Stats;
 import valueobjects.Warenkorb;
-import domain.exceptions.AccountExistiertBereitsException;
-import domain.exceptions.AccountExistiertNichtException;
-import domain.exceptions.ArtikelExistiertBereitsException;
-import domain.exceptions.ArtikelExistiertNichtException;
-import domain.exceptions.BestandUeberschrittenException;
-import domain.exceptions.StatExistiertBereitsException;
 
 public class CUI {
 
@@ -31,11 +26,11 @@ public class CUI {
 	private Account user;
 	private boolean massengut = false;
 
-	public CUI(String datei) throws IOException, StatExistiertBereitsException {
+	public CUI(String datei) throws IOException {
 		
 		// Die Shop-Verwaltung erledigt, die Aufgaben,
 		// die nichts mit Ein-/Ausgabe zu tun haben
-		shop = new Clientverwaltung(datei);
+		shop = new Clientverwaltung("Localhost",8788, 10*1000 /*10 Sek timeout*/,false);
 		
 		// Stream-Objekt fuer Texteingabe ueber Konsolenfenster erzeugen
 		// Der Buffered Reader wird benutzt um die Eingabe einer einzelnen Zeile
@@ -92,7 +87,7 @@ public class CUI {
 	 * 
 	 */
 	
-	private void verarbeiteEingabe(String line) throws IOException, ArtikelExistiertNichtException {
+	private void verarbeiteEingabe(String line) throws IOException {
 		
 		/**
 		 * Befehl e: Artikel einfuegen, nur als Mitarbeiter
@@ -143,7 +138,7 @@ public class CUI {
 							System.out
 									.println("Einfuegen ok, Artikel wurde angelegt.");
 						else
-							throw new ArtikelExistiertBereitsException();
+							throw new Exception();
 					} else if (massengut) {
 						ok = shop.fuegeMassengutEin(artname, artnr, artbestand, artpreis, packung);
 						shop.schreibeArtikeldaten();

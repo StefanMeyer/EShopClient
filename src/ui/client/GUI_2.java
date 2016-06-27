@@ -108,7 +108,7 @@ public class GUI_2 extends JFrame{
 		kundenPanel.setLayout(new GridLayout(1, 3));
 		kundenPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login	
 		navframe.add(kundenPanel, BorderLayout.NORTH);
-		//nnicht benötige panel ausblenden
+		//nnicht benï¿½tige panel ausblenden
 		obenPanel.setVisible(true);
 	}
 	
@@ -117,7 +117,7 @@ public class GUI_2 extends JFrame{
 		navframe.add(mitarbeiterPanel, BorderLayout.NORTH);
 		contentframe.add(mitarbeiterPanel.getContentframe());
 		mitarbeiterPanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
-		//nicht benötigte Panel ausblenden
+		//nicht benï¿½tigte Panel ausblenden
 		artikelPanel.setVisible(false);
 		warenkorbPanel.setVisible(false);
 	}	
@@ -135,8 +135,13 @@ public class GUI_2 extends JFrame{
 	public void userLoggedIn(Account user) {
 		//Menuebar anpassen 
 		menuBar.setUserLoggedIn(true);
+		//gastkonto lÃ¶schen?
+		if (user.getAccountNr() < 0) {
+			//TODO lÃ¶schen gastaccount
+			
+		}
 		if (user instanceof Kunde) {
-			//kunde einloggen und warenkorb übernehmen
+			//kunde einloggen und warenkorb Ã¼bernehmen
 			if(!(user.getAccountNr() < 0)){
 				Warenkorb wk = shop.getWarenkorb(this.user);
 				this.user = shop.setWarenkorb(user, wk);
@@ -207,17 +212,17 @@ public class GUI_2 extends JFrame{
 		
 		refresh();
 	}
-	/**Fügt einen Artikel in den Warenkorb
+	/**Fï¿½gt einen Artikel in den Warenkorb
 	 * 
 	 * @param anzahl -> Anzahl der Artikel die Hinzugefï¿½gt werden sollen
 	 * @throws NumberFormatException
 	 */
 	public boolean zumWarenkorbHinzufuegen(int anzahl) throws NumberFormatException {
-		//prüfen ob Artikel ausreichend vorhandne ist.
+		//prï¿½fen ob Artikel ausreichend vorhandne ist.
 		Artikel art = shop.artikelSuchen(Integer.parseInt((this.artikelPanel.getArtikeltable().getValueAt(this.getArtikelPanel().getAusgabeTabelle().convertRowIndexToModel(this.getArtikelPanel().getAusgabeTabelle().getSelectedRow()),0)).toString()));
 		if (art.getBestand() < anzahl || anzahl < 1) {
 		//TODO some error message	
-			JOptionPane.showMessageDialog(null,"Artikel nicht in ausreichender Menge verfügbar.");
+			JOptionPane.showMessageDialog(null,"Artikel nicht in ausreichender Menge verfï¿½gbar.");
 			return false;
 		}else{
 			Kunde kunde = (Kunde) this.user;		
@@ -234,7 +239,7 @@ public class GUI_2 extends JFrame{
         this.getWarenkorbPanel().updateData(shop.getWarenkorb(this.user));
 	}		
 	
-	/** Fügt einen Artikel dem shop hinzu
+	/** Fï¿½gt einen Artikel dem shop hinzu
 	 * 
 	 * @param atkl
 	 */
@@ -253,7 +258,7 @@ public class GUI_2 extends JFrame{
 		}
 		*/		
 	}
-	/** Lï¿½scht einen Artikel aus dem Shop
+	/** LÃ¶scht einen Artikel aus dem Shop
 	 * 
 	 * @param atkl
 	 */	

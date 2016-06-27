@@ -1,18 +1,20 @@
 // KUNDE //
 
-
-
 // MITARBEITER //
 
 - Statistik integrieren
 
 - Änderungen an Massengutartikeln wird nicht gespeichert.
 
-- artikel Löschen
+-> artikel Löschen
+
+-> Mitarbeiter kann Mitarbeiter Account erstellen.
 
 //Rechnung //
 
-//weitere ToDos
+
+
+//sonstiges
 
 -> Exeptions werden nicht angezeigt /berücksichtigt
 
@@ -22,7 +24,7 @@
 
 -> "Bestellhistorie" ?! 
 
--> Mitarbeiter kann Mitarbeiter Account erstellen.
+
 
 -> Dokumentation
 

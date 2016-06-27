@@ -247,14 +247,11 @@ public class MitarbeiterPanel extends JPanel{
 				} else
 					System.out.println("Fehler beim Entfernen.");*/
 				
-				try {
 					gui.getShop().entferneArtikel(Integer.parseInt(((ausgabeTabelle.getValueAt(ausgabeTabelle.getSelectedRow(), 0)).toString())));
+					artikeltable.setDataVector(gui.getShop().gibAlleArtikel(), "Speichern");
+					renderOption();	
 					JOptionPane.showMessageDialog(null, "Artikel wurde gelöscht.");
 					gui.getShop().schreibeArtikeldaten();
-				} catch (NumberFormatException e2) {
-
-					e2.printStackTrace();
-				}
 			}
 			
 		});

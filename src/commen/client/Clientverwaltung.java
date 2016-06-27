@@ -17,7 +17,7 @@ import valueobjects.Stats;
 import valueobjects.Warenkorb;
 
 /**
- * Stellt die Kommunikation mit den Server da, dem Server wird mitgeteilt was der Client für Daten braucht oder was er zu tun hat.  
+ * Stellt die Kommunikation mit den Server da, dem Server wird mitgeteilt was der Client fï¿½r Daten braucht oder was er zu tun hat.  
  */
 
 public class Clientverwaltung extends Client{
@@ -62,26 +62,26 @@ public class Clientverwaltung extends Client{
 	}
 	public Kunde inWarenkorbEinfuegen(Artikel art, int anzahl, Kunde user) {
 		Datapackage kunde = sendMessage(new Datapackage("INWARENKORBEINFUEGEN", art, anzahl, user));
-		System.out.println("[Client] inWarenkorbeinfügen:" + kunde.get(1));
+		System.out.println("[Client] inWarenkorbeinfï¿½gen:" + kunde.get(1));
 		return (Kunde) kunde.get(1);
 	}
 
 	public Kunde ausWarenkorbloechen(Artikel artikelSuchen, Kunde user) {
 		Datapackage kunde = sendMessage(new Datapackage("AUSWARENKORBLOESCHEN",artikelSuchen, user));
-		System.out.println("[Client] Auswarenkorblöschen" + kunde.get(1));
+		System.out.println("[Client] Auswarenkorblï¿½schen" + kunde.get(1));
 		return (Kunde) kunde.get(1);
 	}
 
 	public void aendereArtikel(String artikelname, int artikelnummer, int bestand, float preis, int packungsgroesse) {
 		sendMessage(new Datapackage("AENDEREARTIKEL",artikelname, artikelnummer, bestand, preis, packungsgroesse));
-		System.out.println("[Client] artikeländern:");
+		System.out.println("[Client] artikelï¿½ndern:");
 	}
 	public void schreibeKundendaten() {
 		// TODO Auto-generated method stub
 		sendMessage(new Datapackage("SCHREIBEKUNDENDATEN"));
 	}
 	public Rechnung kaufAbwickeln(Kunde user) {
-		//TODO Aktaullisere für alle clients artikelliste
+		//TODO Aktaullisere fï¿½r alle clients artikelliste
 		Datapackage data = sendMessage(new Datapackage("KAUFABWICKELN", user));
 		//kunden Updaten
 		gui.setUser((Kunde) data.get(1));
@@ -93,13 +93,19 @@ public class Clientverwaltung extends Client{
 	}
 
 	public List<Stats> gibAlleStats() {
-		// TODO Auto-generated method stub
-		return null;
+		Datapackage stats = sendMessage(new Datapackage("GIBALLESTATS"));
+		System.out.println("[Client] Getstats:");
+		@SuppressWarnings("unchecked")
+		List<Stats> list = (List<Stats>) stats.get(1);
+		return list;	
 	}
 
 	public List<Stats> statsSuchen(int arklnummer) {
-		// TODO Auto-generated method stub
-		return null;
+		Datapackage stats = sendMessage(new Datapackage("STATSSUCHEN", arklnummer));
+		System.out.println("[Client] statsSuchen:");
+		@SuppressWarnings("unchecked")
+		List<Stats> list = (List<Stats>) stats.get(1);
+		return list;	
 	}
 
 	public void fuegeKundenAccountEin(String name, String passwort, String strasse, int plz, String ort) {

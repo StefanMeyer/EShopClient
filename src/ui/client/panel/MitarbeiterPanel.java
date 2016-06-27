@@ -1,9 +1,11 @@
 package ui.client.panel;
 
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -25,6 +27,7 @@ import ui.client.ButtonEditor;
 import ui.client.ButtonRenderer;
 import ui.client.GUI_2;
 import valueobjects.Artikel;
+import valueobjects.Stats;
 
 
 public class MitarbeiterPanel extends JPanel{
@@ -251,10 +254,45 @@ public class MitarbeiterPanel extends JPanel{
 	
 	public void statistikButtonGedrueckt() {
 		statistikButton.addActionListener(new ActionListener() { 
-			
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Statistik Button");
-				gP.main(args);
+				JFrame frame = new JFrame("");
+		 	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		 	      	   
+		 	      JPanel layout = new JPanel();
+		 	      JPanel nav = new JPanel();
+		 	      layout.setLayout(new BorderLayout());
+		 	      nav.setLayout(new GridLayout(5,1));
+		 		   List <Stats> alleStats = gui.getShop().gibAlleStats();
+		 			if (alleStats.isEmpty()) {
+		 				System.out.println("Keine Statistiken verfügbar");
+		 			} else {
+		 				Iterator<Stats> iter = alleStats.iterator();
+		 				int lastartikelnummer = 0;
+		 				int max_bes = 0;
+		 				while (iter.hasNext()) {
+		 					Stats statslist2 = iter.next();
+		 					//Für jeden artikel ein Listenemelemt erstellen
+		 					if (statslist2.getArklnummer() != lastartikelnummer) {
+		 						//neues Listenfeld erzeugen
+		 						JButton button = new JButton("Statistik für: " + statslist2.getAtklname());
+		 						button.addActionListener(new ActionListener() { 
+		 							public void actionPerformed(ActionEvent arg0) {
+		 								System.out.println("layout " + statslist2.getAtklname());
+		 								layout.add(new statsPanel(gui.getShop().statsSuchen(statslist2.getArklnummer())), BorderLayout.CENTER);
+		 								frame.pack();
+		 							}
+		 						});
+		 						nav.add(button);
+		 						System.out.println("add: " + statslist2.getAtklname());
+		 					}
+		 					lastartikelnummer = statslist2.getArklnummer();
+		 				}
+		 			}	      
+		 	      layout.add(nav, BorderLayout.WEST);
+		 	      frame.getContentPane().add(layout);	
+		 	      frame.pack();
+		 	      frame.setLocationByPlatform(true);
+		 	      frame.setVisible(true);	
 			}
 		});
 	}

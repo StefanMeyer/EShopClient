@@ -287,22 +287,28 @@ public class MitarbeiterPanel extends JPanel{
 		 				Iterator<Stats> iter = alleStats.iterator();
 		 				int lastartikelnummer = 0;
 		 				int max_bes = 0;
+		 				boolean delete = true;
 		 				while (iter.hasNext()) {
 		 					Stats statslist2 = iter.next();
 		 					//Für jeden artikel ein Listenemelemt erstellen
 		 					if (statslist2.getArklnummer() != lastartikelnummer) {
-		 						//neues Listenfeld erzeugen
-		 						JButton button = new JButton("Statistik für: " + statslist2.getAtklname());
-		 						button.addActionListener(new ActionListener() { 
-		 							public void actionPerformed(ActionEvent arg0) {
-		 								System.out.println("layout " + statslist2.getAtklname());
-		 								layout.add(new statsPanel(gui.getShop().statsSuchen(statslist2.getArklnummer())), BorderLayout.CENTER);
-		 								frame.pack();
-		 							}
-		 						});
-		 						nav.add(button);
-		 						System.out.println("add: " + statslist2.getAtklname());
+		 						System.out.println("check: " + statslist2.getAtklname() + statslist2.getType() +  delete);
+								if (statslist2.getType() == statslist2.getType().BESTAND_VERAENDERT
+		 							&& delete) {
+			 						//neues Listenfeld erzeugen
+			 						JButton button = new JButton("Statistik für: " + statslist2.getAtklname());
+			 						button.addActionListener(new ActionListener() { 
+			 							public void actionPerformed(ActionEvent arg0) {
+			 								System.out.println("layout " + statslist2.getAtklname());
+			 								layout.add(new statsPanel(gui.getShop().statsSuchen(statslist2.getArklnummer())), BorderLayout.CENTER);
+			 								frame.pack();
+			 							}
+			 						});
+			 						nav.add(button);
+		 						}
+								delete = true;
 		 					}
+		 					if (statslist2.getType() == statslist2.getType().GELOESCHT || statslist2.getType() == statslist2.getType().NEU) delete = false;
 		 					lastartikelnummer = statslist2.getArklnummer();
 		 				}
 		 			}	      

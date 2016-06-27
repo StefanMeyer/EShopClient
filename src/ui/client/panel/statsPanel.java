@@ -142,9 +142,9 @@ private List<Integer> scores = new ArrayList<Integer>();
 	    }
 
 //	    @Override
-//	    public Dimension getPreferredSize() {
-//	        return new Dimension(width, heigth);
-//	    }
+	    public Dimension getPreferredSize() {
+	        return new Dimension(800, 600);
+	    }
 	    private double getMinScore() {
 	        double minScore = Double.MAX_VALUE;
 	        for (Integer score : scores) {

@@ -206,28 +206,28 @@ public class MitarbeiterPanel extends JPanel{
 				
 				System.out.println("ARTIKEL LÖSCHEN");
 				
-				final JFrame rechnungFenster = new JFrame();
-//				rechnungFenster.setTitle("Rechnung");
-//				rechnungFenster.setSize(500, 500);
-//				rechnungFenster.getContentPane().setLayout(new GridLayout(3, 1));
-				final JFrame artikelLoeschenFrame = new JFrame();
-				
-				artikelLoeschenFrame.setSize(200, 300);
-				artikelLoeschenFrame.setLayout(new GridLayout(4, 1));
-		
-				JLabel artikelLoeschenLabel = new JLabel("Artikelnummer auswählen: ");
-				artikelLoeschenFrame.add(artikelLoeschenLabel);
-				
-				final JTextField eingabeFeld = new JTextField();
-				artikelLoeschenFrame.add(eingabeFeld);
-						
-				JLabel platzhalter = new JLabel("");
-				artikelHinzufuegenFrame.add(platzhalter);
-				
-				JButton löschen = new JButton("Löschen");
-				artikelLoeschenFrame.add(löschen);
-				
-				artikelLoeschenFrame.setVisible(true);
+//				final JFrame rechnungFenster = new JFrame();
+////				rechnungFenster.setTitle("Rechnung");
+////				rechnungFenster.setSize(500, 500);
+////				rechnungFenster.getContentPane().setLayout(new GridLayout(3, 1));
+//				final JFrame artikelLoeschenFrame = new JFrame();
+//				
+//				artikelLoeschenFrame.setSize(200, 300);
+//				artikelLoeschenFrame.setLayout(new GridLayout(4, 1));
+//		
+//				JLabel artikelLoeschenLabel = new JLabel("Artikelnummer auswählen: ");
+//				artikelLoeschenFrame.add(artikelLoeschenLabel);
+//				
+//				final JTextField eingabeFeld = new JTextField();
+//				artikelLoeschenFrame.add(eingabeFeld);
+//						
+//				JLabel platzhalter = new JLabel("");
+//				artikelHinzufuegenFrame.add(platzhalter);
+//				
+//				JButton löschen = new JButton("Löschen");
+//				artikelLoeschenFrame.add(löschen);
+//				
+//				artikelLoeschenFrame.setVisible(true);
 				
 				
 				
@@ -246,6 +246,15 @@ public class MitarbeiterPanel extends JPanel{
 					System.out.println("Entfernen ok, Artikel wurde gel�scht.");
 				} else
 					System.out.println("Fehler beim Entfernen.");*/
+				
+				try {
+					gui.getShop().entferneArtikel(Integer.parseInt(((ausgabeTabelle.getValueAt(ausgabeTabelle.getSelectedRow(), 0)).toString())));
+					JOptionPane.showMessageDialog(null, "Artikel wurde gelöscht.");
+					gui.getShop().schreibeArtikeldaten();
+				} catch (NumberFormatException e2) {
+
+					e2.printStackTrace();
+				}
 			}
 			
 		});

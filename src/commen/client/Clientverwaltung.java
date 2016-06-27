@@ -76,6 +76,12 @@ public class Clientverwaltung extends Client{
 		sendMessage(new Datapackage("AENDEREARTIKEL",artikelname, artikelnummer, bestand, preis, packungsgroesse));
 		System.out.println("[Client] artikel�ndern:");
 	}
+	
+	public void entferneArtikel(int artnr) {
+		sendMessage(new Datapackage("ENTFERNEARTIKEL", artnr));
+		System.out.println("[Client] artikeloeschen:");
+	}
+	
 	public void schreibeKundendaten() {
 		// TODO Auto-generated method stub
 		sendMessage(new Datapackage("SCHREIBEKUNDENDATEN"));

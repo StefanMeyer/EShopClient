@@ -86,6 +86,13 @@ public class Clientverwaltung extends Client{
 		// TODO Auto-generated method stub
 		sendMessage(new Datapackage("SCHREIBEKUNDENDATEN"));
 	}
+	
+	public void schreibeMitarbeiterdaten(){
+		// TODO Auto-generated method stub
+		sendMessage(new Datapackage("SCHREIBEMITARBEITERDATEN"));
+		System.out.println("[Client] schreibemitarbeiterdaten:");
+	}
+	
 	public Rechnung kaufAbwickeln(Kunde user) {
 		//TODO Aktaullisere f�r alle clients artikelliste
 		Datapackage data = sendMessage(new Datapackage("KAUFABWICKELN", user));
@@ -118,6 +125,12 @@ public class Clientverwaltung extends Client{
 		sendMessage(new Datapackage("FUEGEKUNDENACCOUNTEIN", name,passwort,strasse,plz,ort));
 		System.out.println("[Client] fuegekundenaccountein:");
 	}
+	
+	public void fuegeMitarbeiterAccountEin(String name, String passwort) {
+		sendMessage(new Datapackage("FUEGEMITARBEITERACCOUNTEIN", name, passwort));
+		System.out.println("[Client] fuegemitarbeiteraccountein:");
+	}
+	
 	public Account loginAccount(String name, String passwort) {
 		Datapackage kunde = sendMessage(new Datapackage("LOGINACCOUNT", name, passwort));
 		System.out.println("[Client] LoginAccount:" + kunde.get(1));

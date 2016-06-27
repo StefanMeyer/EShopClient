@@ -58,6 +58,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 			
 			JButton loginButton = new JButton("Login");
 			login.add(loginButton);
+			
 			login.setVisible(true);	
 
 			//Fuer Menue Account -> Einloggen -> Login Button

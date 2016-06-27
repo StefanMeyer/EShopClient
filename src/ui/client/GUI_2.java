@@ -113,7 +113,7 @@ public class GUI_2 extends JFrame{
 	}
 	
 	public void MitarbeiterPanelSetzen(){
-		mitarbeiterPanel.setLayout(new GridLayout(1, 3));
+		mitarbeiterPanel.setLayout(new GridLayout(1, 4));
 		navframe.add(mitarbeiterPanel, BorderLayout.NORTH);
 		contentframe.add(mitarbeiterPanel.getContentframe());
 		mitarbeiterPanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login

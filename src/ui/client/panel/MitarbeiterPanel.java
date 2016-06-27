@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -22,6 +23,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import commen.client.Clientverwaltung;
+//import domain.exceptions.AccountExistiertBereitsException;
 import ui.client.ArtikelTableModel;
 import ui.client.ButtonEditor;
 import ui.client.ButtonRenderer;
@@ -40,6 +42,7 @@ public class MitarbeiterPanel extends JPanel{
 	public JButton statistikButton = new JButton("Statistik",new ImageIcon("src/assets/statistikIcon.png"));
 	private JButton artikelHinzufuegenButton = new JButton("Artikel hinzufuegen", new ImageIcon("src/assets/artikelHinzufuegenIcon.png"));
 	private JButton artikelLoeschenButton = new JButton("Artikel löschen", new ImageIcon("src/assets/artikelLöschenIcon.png"));
+	private JButton mitarbeiterHinzufuegenButton = new JButton("Mitarbeiter hinzufuegen", new ImageIcon("src/assets/mitarbeiterHinzufuegenIcon.png"));
 	//private JButton refreshButton = new JButton("refresh", new ImageIcon("src/assets/refreshIcon.png"));
 	private GraphPanel gP;
 	protected String[] args;
@@ -75,6 +78,7 @@ public class MitarbeiterPanel extends JPanel{
 		add(statistikButton);
 		add(artikelHinzufuegenButton);
 		add(artikelLoeschenButton);
+		add(mitarbeiterHinzufuegenButton);
 		//add(refreshButton);
 		
 		hinzufugenPanel(); 
@@ -205,48 +209,7 @@ public class MitarbeiterPanel extends JPanel{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				System.out.println("ARTIKEL LÖSCHEN");
-				
-//				final JFrame rechnungFenster = new JFrame();
-////				rechnungFenster.setTitle("Rechnung");
-////				rechnungFenster.setSize(500, 500);
-////				rechnungFenster.getContentPane().setLayout(new GridLayout(3, 1));
-//				final JFrame artikelLoeschenFrame = new JFrame();
-//				
-//				artikelLoeschenFrame.setSize(200, 300);
-//				artikelLoeschenFrame.setLayout(new GridLayout(4, 1));
-//		
-//				JLabel artikelLoeschenLabel = new JLabel("Artikelnummer auswählen: ");
-//				artikelLoeschenFrame.add(artikelLoeschenLabel);
-//				
-//				final JTextField eingabeFeld = new JTextField();
-//				artikelLoeschenFrame.add(eingabeFeld);
-//						
-//				JLabel platzhalter = new JLabel("");
-//				artikelHinzufuegenFrame.add(platzhalter);
-//				
-//				JButton löschen = new JButton("Löschen");
-//				artikelLoeschenFrame.add(löschen);
-//				
-//				artikelLoeschenFrame.setVisible(true);
-				
-				
-				
-				//List<Artikel> artikelListe = gui.getShop().gibAlleArtikel();
-				//gibArtikellisteAus(artikelListe);
-				/*
-				System.out.println("Bitte geben Sie die Artikelnummer des zu entfernenden Produktes ein:");
-				System.out.println("Ihre Eingabe >");
-				String nummer = eingabeFeld;
-				int artnr = Integer.parseInt(nummer);
-
-				boolean ok = shop.entferneArtikel(artnr);
-				shop.schreibeArtikeldaten();
-
-				if (ok) {
-					System.out.println("Entfernen ok, Artikel wurde gel�scht.");
-				} else
-					System.out.println("Fehler beim Entfernen.");*/
-				
+								
 					gui.getShop().entferneArtikel(Integer.parseInt(((ausgabeTabelle.getValueAt(ausgabeTabelle.getSelectedRow(), 0)).toString())));
 					artikeltable.setDataVector(gui.getShop().gibAlleArtikel(), "Speichern");
 					renderOption();	
@@ -254,6 +217,55 @@ public class MitarbeiterPanel extends JPanel{
 					gui.getShop().schreibeArtikeldaten();
 			}
 			
+		});
+		
+		
+		
+		//Mitarbiter hinzufügen Button
+		mitarbeiterHinzufuegenButton.addActionListener(new ActionListener() { 
+
+			public void actionPerformed(ActionEvent arg0) {
+				
+				final JFrame maHinzufuegenFrame = new JFrame();
+				
+				maHinzufuegenFrame.setSize(200, 300);
+				maHinzufuegenFrame.setLayout(new GridLayout(6, 1));
+		
+				JLabel maName = new JLabel("Mitarbeitername:");
+				maHinzufuegenFrame.add(maName);
+				
+				final JTextField maNameFeld = new JTextField();
+				maHinzufuegenFrame.add(maNameFeld);
+				
+				JLabel maPasswort = new JLabel("Mitarbeiterpasswort:");
+				maHinzufuegenFrame.add(maPasswort);
+				
+				final JTextField maPasswortFeld = new JTextField();
+				maHinzufuegenFrame.add(maPasswortFeld);
+				
+				JLabel platzhalter = new JLabel("");
+				maHinzufuegenFrame.add(platzhalter);
+				
+				JButton hinzufuegenButton = new JButton("Hinzufügen");
+				maHinzufuegenFrame.add(hinzufuegenButton);
+				
+				maHinzufuegenFrame.setVisible(true);
+				
+				hinzufuegenButton.addActionListener(new ActionListener() { 
+					public void actionPerformed(ActionEvent arg0) {
+						System.out.println("Mitarbeiter hinzufügen Button");
+
+						//hole Name und Passwort aus Textfelder
+						String name = maName.getText();
+						String passwort = maPasswort.getText();
+						
+//						try {
+							gui.getShop().fuegeMitarbeiterAccountEin(name, passwort);
+							gui.getShop().schreibeMitarbeiterdaten();
+							maHinzufuegenFrame.setVisible(false);
+					}
+				});
+			}
 		});
 		
 	}

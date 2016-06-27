@@ -22,7 +22,7 @@ import valueobjects.Warenkorb;
 
 public class WarenkorbPanel extends JPanel implements ActionListener {
 
-	private JPanel kaufabschlieﬂenbereich = new JPanel();
+	private JPanel kaufabschlie√üenbereich = new JPanel();
 	private JTable ausgabeTabelle;
 	private ArtikelTableModel artikeltable;
 	private JScrollPane scrollPane;

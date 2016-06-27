@@ -2,8 +2,6 @@ package valueobjects;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * Klasse zur Repraesentation des Warenkorbs.
